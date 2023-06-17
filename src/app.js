@@ -57,6 +57,10 @@ app.use('/v1', v1Routes);
 //? my store routes
 app.use('/store', storeRoutes);
 
+app.use('/', (req, res) => {
+  res.send('Welcome, aaand hello world');
+});
+
 // send back a 404 error for any unknown api request
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
